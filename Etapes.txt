@@ -26,3 +26,11 @@ au personnage.
 4 récupération des données sur la page personnage (requête Axios)
 5 affichage des données sur la page personnage
 --- push gitHub
+1 CSS navigation
+--- push gitHub
+1 CSS page personnage
+--- push gitHub
+1 mise en place backend sur Heroku
+2 modifications fichiers .env et App.js (PORT) et package.json ("start": "node index.js",)
+--- push gitHub
+

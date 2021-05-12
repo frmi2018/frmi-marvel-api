@@ -13,7 +13,9 @@ const Characters = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/data");
+        const response = await axios.get(
+          "https://frmi-marvel-api.herokuapp.com/data"
+        );
         // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
