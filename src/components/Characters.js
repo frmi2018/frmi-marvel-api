@@ -2,6 +2,7 @@
 import "./characters.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Characters = () => {
   // state pour stocker les données reçu
@@ -34,16 +35,18 @@ const Characters = () => {
       {/* Afficher les données reçu (JSON) */}
       {data.map((char) => {
         return (
-          <div key={char._id} className="card-hero">
-            <img
-              src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
-              alt={char.name}
-            />
-            <div>
-              <span>{char.name}</span>
-              <span>{char.description}</span>
+          <Link id={char._id} to={`/comics/${char._id}`}>
+            <div key={char._id} className="card-hero">
+              <img
+                src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
+                alt={char.name}
+              />
+              <div>
+                <span>{char.name}</span>
+                <span>{char.description}</span>
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

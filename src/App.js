@@ -12,7 +12,7 @@ function App() {
         <div className="container">
           <Nav />
           <Switch>
-            <Route path="/comics">
+            <Route path="/comics/:id">
               <Comics />
             </Route>
             <Route path="/favoris">
