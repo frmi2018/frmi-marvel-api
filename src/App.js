@@ -1,29 +1,16 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Characters from "./components/Characters";
 import Comics from "./components/Comics";
 import Favoris from "./components/Favoris";
-import logo from "./assets/images/logo-marvel.png";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <div className="container">
-          <img src={logo} alt="logo-marvel" style={{ height: 50 }} />
-          <nav className="menu">
-            <ul>
-              <li>
-                <Link to="/">Personnages</Link>
-              </li>
-              <li>
-                <Link to="/comics">Comics</Link>
-              </li>
-              <li>
-                <Link to="favoris">Favoris</Link>
-              </li>
-            </ul>
-          </nav>
+          <Nav />
           <Switch>
             <Route path="/comics">
               <Comics />

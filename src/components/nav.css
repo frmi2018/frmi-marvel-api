@@ -1,0 +1,34 @@
+.nav-container {
+  background-color: #ee171f;
+  display: flex;
+}
+
+.nav-container img {
+  width: 25%;
+}
+
+.nav-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.nav-menu ul {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu ul li {
+  flex: 1;
+  line-height: 8vh;
+  text-align: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+}
