@@ -1,5 +1,5 @@
 // page web characters
-
+import "./characters.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -32,13 +32,15 @@ const Characters = () => {
       {/* Afficher les données reçu (JSON) */}
       {data.map((char) => {
         return (
-          <div key={char._id}>
+          <div key={char._id} className="card-hero">
             <img
               src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
               alt={char.name}
             />
-            <span>{char.name}</span>
-            <span>{char.description}</span>
+            <div>
+              <span>{char.name}</span>
+              <span>{char.description}</span>
+            </div>
           </div>
         );
       })}
