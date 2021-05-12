@@ -1,0 +1,5 @@
+Création du projet React
+Supprimer les fichiers inutiles
+---
+Créez un site en React (avec un routeur) qui contiendra en haut : le logo MARVEL et un menu (personnages, comics, favoris).
+Création du router : yarn add react-router-dom
