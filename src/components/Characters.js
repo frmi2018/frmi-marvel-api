@@ -15,7 +15,7 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://frmi-marvel-api.herokuapp.com/data"
+          "https://frmi-marvel-api.herokuapp.com/characters"
         );
         // console.log(response.data);
         setData(response.data);
