@@ -10,23 +10,24 @@
   width: 20vh;
 }
 
-.card-hero div {
-  background-color: #ee171f;
-  color: white;
+.card-hero .infos {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding-left: 4px;
 }
 
-.card-hero span:first-child {
+.card-hero .infos .label {
   background-color: white;
   color: red;
-  padding-left: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
 }
 
-.card-hero span:last-child {
-  height: 100%;
-  font-size: 0.8em;
-  padding-left: 4px;
+.card-hero .infos .description {
+  color: white;
+  flex: 1;
+  font-size: 0.75em;
+  padding: 4px;
 }

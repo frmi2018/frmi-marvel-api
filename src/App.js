@@ -21,6 +21,9 @@ function App() {
             <Route path="/favoris">
               <Favoris />
             </Route>
+            <Route path="/characters/:skip">
+              <Characters />
+            </Route>
             <Route path="/">
               <Characters />
             </Route>

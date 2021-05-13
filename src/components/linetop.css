@@ -1,0 +1,20 @@
+.linetop-container {
+  display: flex;
+  background-color: #ee171f;
+  border-top: 1px solid white;
+}
+
+.btn-previous,
+.btn-next {
+  width: 200px;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.linetop-container .col2 {
+  flex: 1;
+  display: block;
+  text-align: center;
+  color: white;
+}
