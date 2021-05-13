@@ -18,8 +18,8 @@ const Comics = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/comics?characterId=${characterId}`
-          // "https://frmi-marvel-api.herokuapp.com/comics"
+          // `http://localhost:3000/comics?characterId=${characterId}`
+          `https://frmi-marvel-api.herokuapp.com/comics?characterId=${characterId}`
         );
         console.log(response.data);
         setCharacter(response.data.name);
