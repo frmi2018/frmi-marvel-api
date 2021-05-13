@@ -13,19 +13,32 @@ const Comics = () => {
   // récupération des paramètres envoyés à la fonction Comics
   const { characterId } = useParams();
 
-  // requête serveur pour récupérer les données des comics liés à ce personnage
+  // requêtes serveur route comics
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          // `http://localhost:3000/comics?characterId=${characterId}`
-          `https://frmi-marvel-api.herokuapp.com/comics?characterId=${characterId}`
-        );
-        console.log(response.data);
-        setCharacter(response.data.name);
-        // Mettre le tableau des comics dans le state data pour le .map
-        setData(response.data.comics);
-        setIsLoading(false);
+        if (characterId) {
+          const response = await axios.get(
+            // `http://localhost:3000/comics?characterId=${characterId}`
+            `https://frmi-marvel-api.herokuapp.com/comics?characterId=${characterId}`
+          );
+          console.log("avec id :" + characterId);
+          console.log(response.data);
+          setCharacter(response.data.name);
+          // Mettre le tableau des comics dans le state data pour le .map
+          setData(response.data.comics);
+          setIsLoading(false);
+        } else {
+          const response = await axios.get(
+            // `http://localhost:3000/comics`
+            `https://frmi-marvel-api.herokuapp.com/comics`
+          );
+          console.log("sans id");
+          console.log(response.data);
+          // Mettre le tableau des comics dans le state data pour le .map
+          setData(response.data.results);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.log(error.message);
       }
@@ -38,8 +51,11 @@ const Comics = () => {
     <span>Chargement en cours...</span>
   ) : (
     <div>
-      <span>{character}</span>
-      <span> appear in {data.length} comics</span>
+      {characterId ? (
+        [<span>{character}</span>, <span> appear in {data.length} comics</span>]
+      ) : (
+        <span>Comics List</span>
+      )}
       {/* Faire un .map sur le tableau des comics pour les afficher */}
       {data.map((comic) => {
         return (
