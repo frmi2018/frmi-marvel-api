@@ -1,0 +1,32 @@
+.card-comic {
+  background-color: #ee171f;
+  display: flex;
+  height: 20vh;
+  margin-top: 1vh;
+  padding: 4px;
+}
+
+.card-comic img {
+  width: 20vh;
+}
+
+.card-comic div {
+  background-color: #ee171f;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+}
+
+.card-comic span:first-child {
+  background-color: white;
+  color: red;
+  padding-left: 4px;
+}
+
+.card-comic span:last-child {
+  height: 100%;
+  font-size: 0.8em;
+  padding-left: 4px;
+}

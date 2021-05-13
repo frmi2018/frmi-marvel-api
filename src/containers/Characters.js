@@ -35,10 +35,12 @@ const Characters = () => {
       {/* Afficher les données reçu (JSON) */}
       {data.map((char) => {
         return (
+          // lien vers la page comics avec un paramètre
           <Link id={char._id} to={`/comics/${char._id}`}>
             <div key={char._id} className="card-hero">
               <img
-                src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
+                // src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
+                src={`${char.thumbnail.path}.${char.thumbnail.extension}`}
                 alt={char.name}
               />
               <div>

@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Characters from "./components/Characters";
-import Comics from "./components/Comics";
-import Favoris from "./components/Favoris";
+import Characters from "./containers/Characters";
+import Comics from "./containers/Comics";
+import Favoris from "./containers/Favoris";
 import Nav from "./components/Nav";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <div className="container">
           <Nav />
           <Switch>
-            <Route path="/comics/:id">
+            <Route path="/comics/:characterId">
               <Comics />
             </Route>
             <Route path="/favoris">
