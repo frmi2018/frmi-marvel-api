@@ -3,8 +3,12 @@ import "./comics.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import LineTop from "../components/LineTop";
+import Loader from "react-loader-spinner";
 
-const Comics = () => {
+const Comics = (props) => {
+  const { skip, setSkip, count, setCount, page } = props;
+
   // state pour stocker les données reçu
   const [data, setData] = useState();
   const [character, setCharacter] = useState();
@@ -18,25 +22,23 @@ const Comics = () => {
     const fetchData = async () => {
       try {
         if (characterId) {
+          // route pour les comics d'un character
           const response = await axios.get(
-            // `http://localhost:3000/comics?characterId=${characterId}`
+            // `http://localhost:4000/comics?characterId=${characterId}`
             `https://frmi-marvel-api.herokuapp.com/comics?characterId=${characterId}`
           );
-          console.log("avec id :" + characterId);
-          console.log(response.data);
           setCharacter(response.data.name);
-          // Mettre le tableau des comics dans le state data pour le .map
           setData(response.data.comics);
+          setCount(response.data.comics.length);
           setIsLoading(false);
         } else {
+          // route pour tous les comics
           const response = await axios.get(
-            // `http://localhost:3000/comics`
-            `https://frmi-marvel-api.herokuapp.com/comics`
+            // `http://localhost:4000/comics?skip=${skip}`
+            `https://frmi-marvel-api.herokuapp.com/comics?skip=${skip}`
           );
-          console.log("sans id");
-          console.log(response.data);
-          // Mettre le tableau des comics dans le state data pour le .map
           setData(response.data.results);
+          setCount(response.data.count);
           setIsLoading(false);
         }
       } catch (error) {
@@ -44,21 +46,35 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, [characterId]);
+  }, [characterId, skip, setCount]);
 
   // JSX
   return isLoading ? (
-    <span>Chargement en cours...</span>
+    <Loader
+      className="home-loader"
+      type="ThreeDots"
+      color="#ee171f"
+      height={80}
+      width={80}
+    />
   ) : (
     <div>
+      <LineTop skip={skip} setSkip={setSkip} count={count} page={page} />
       {characterId ? (
-        [<span>{character}</span>, <span> appear in {data.length} comics</span>]
+        [
+          <span className="info">{character}</span>,
+          <span className="info">
+            est présent dans {data.length} comic
+            {data.length > 1 && <span>s</span>}
+          </span>,
+        ]
       ) : (
         <span>Comics List</span>
       )}
       {/* Faire un .map sur le tableau des comics pour les afficher */}
       {data.map((comic) => {
         return (
+          // response.data._id ou comic._id
           <div key={comic._id} className="card-comic">
             <img
               // src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}

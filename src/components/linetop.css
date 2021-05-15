@@ -1,20 +1,79 @@
 .linetop-container {
   display: flex;
-  background-color: #ee171f;
+  flex-direction: column;
+  /* background-color: #ee171f; */
   border-top: 1px solid white;
+  font-size: 0.6em;
 }
 
+/* navigation pages */
+.linetop-container .page {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Search */
+.linetop-container .search-container {
+  margin: 10px auto;
+  position: relative;
+}
+
+.search-input {
+  width: 590px;
+  padding-left: 40px;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  height: 37px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: #cbcccd;
+  font-size: 16px;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  color: #bbbbbb;
+}
+
+/* previous/next buttons */
 .btn-previous,
 .btn-next {
-  width: 200px;
   background-color: white;
   cursor: pointer;
   text-align: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em;
 }
 
-.linetop-container .col2 {
-  flex: 1;
-  display: block;
+.btn-previous div,
+.btn-next div {
+  margin: 0 0.4em;
+}
+
+.btn-previous > span,
+.btn-next > span {
+  font-size: 2em;
   text-align: center;
-  color: white;
+}
+
+.col-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TODO ===> cacher un élément sans modifier le DOM */
+.hidden {
+  color: #dddddd;
+  background-color: #dddddd;
+  cursor: default;
 }

@@ -21,7 +21,7 @@
 
 .card-comic span:first-child {
   background-color: white;
-  color: red;
+  color: #ee171f;
   padding-left: 4px;
 }
 
@@ -29,4 +29,8 @@
   height: 100%;
   font-size: 0.8em;
   padding-left: 4px;
+}
+
+.info {
+  padding-left: 0.2em;
 }
