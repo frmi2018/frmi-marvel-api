@@ -2,7 +2,7 @@ import "./linetop.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const LineTop = ({ skip, setSkip, count, setSearch, page }) => {
+const LineTop = ({ skip, setSkip, count, page, setSearch }) => {
   const handleClickPrevious = () => {
     setSkip(skip - 100);
   };
@@ -18,7 +18,10 @@ const LineTop = ({ skip, setSkip, count, setSearch, page }) => {
           type="text"
           className="search-input"
           placeholder="Recherche"
-          onChange={(event) => setSearch(event.target.value)}
+          onChange={(event) => {
+            setSkip(0);
+            setSearch(event.target.value);
+          }}
         />
         <FontAwesomeIcon icon="search" className="search-input-icon" />
       </div>

@@ -52,7 +52,7 @@ const Comics = (props) => {
   return isLoading ? (
     <Loader
       className="home-loader"
-      type="ThreeDots"
+      type="Grid"
       color="#ee171f"
       height={80}
       width={80}

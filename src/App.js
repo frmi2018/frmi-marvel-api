@@ -15,12 +15,18 @@ function App() {
   const [skip, setSkip] = useState(0);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState("character");
+  const [search, setSearch] = useState("");
 
   return (
     <Router>
       <div className="App">
         <div className="container">
-          <Nav setSkip={setSkip} setPage={setPage} setCount={setCount} />
+          <Nav
+            setSkip={setSkip}
+            setPage={setPage}
+            setCount={setCount}
+            setSearch={setSearch}
+          />
           <Switch>
             <Route path="/comics/:characterId">
               <Comics
@@ -73,6 +79,8 @@ function App() {
                 setCount={setCount}
                 page={page}
                 setPage={setPage}
+                search={search}
+                setSearch={setSearch}
               />
             </Route>
           </Switch>

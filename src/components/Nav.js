@@ -2,7 +2,7 @@ import "./nav.css";
 import logo from "../assets/images/logo-marvel.png";
 import { Link } from "react-router-dom";
 
-const Nav = ({ setSkip, setPage, setCount }) => {
+const Nav = ({ setSkip, setPage, setCount, setSearch }) => {
   return (
     <nav className="nav-container">
       <img src={logo} alt="logo-marvel" />
@@ -13,6 +13,7 @@ const Nav = ({ setSkip, setPage, setCount }) => {
               onClick={() => {
                 setSkip(0);
                 setCount(0);
+                setSearch("");
                 setPage("character");
               }}
             >
@@ -22,6 +23,7 @@ const Nav = ({ setSkip, setPage, setCount }) => {
               onClick={() => {
                 setSkip(0);
                 setCount(0);
+                setSearch("");
                 setPage("comics");
               }}
             >
