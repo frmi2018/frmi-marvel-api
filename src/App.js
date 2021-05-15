@@ -34,11 +34,12 @@ function App() {
                 setSkip={setSkip}
                 count={count}
                 setCount={setCount}
-                setPage={setPage}
                 page={page}
+                search={search}
+                setSearch={setSearch}
               />
             </Route>
-            <Route path="/comics/:skip">
+            {/* <Route path="/comics/:skip">
               <Comics
                 skip={skip}
                 setSkip={setSkip}
@@ -47,7 +48,7 @@ function App() {
                 page={page}
                 setPage={setPage}
               />
-            </Route>
+            </Route> */}
             <Route path="/comics">
               <Comics
                 skip={skip}
@@ -56,12 +57,15 @@ function App() {
                 setCount={setCount}
                 page={page}
                 setPage={setPage}
+                search={search}
+                setSearch={setSearch}
               />
             </Route>
             <Route path="/favoris">
               <Favoris />
             </Route>
-            <Route path="/characters/:skip">
+            {/* <Route path="/characters/:skip"> */}
+            <Route path="/characters">
               <Characters
                 skip={skip}
                 setSkip={setSkip}
@@ -69,6 +73,8 @@ function App() {
                 setCount={setCount}
                 page={page}
                 setPage={setPage}
+                search={search}
+                setSearch={setSearch}
               />
             </Route>
             <Route path="/">

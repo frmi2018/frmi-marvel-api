@@ -19,12 +19,11 @@ const Characters = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(search);
         const response = await axios.get(
-          // `http://localhost:4000/characters?name=${search}&skip=${skip}`
+          // `http://localhost:4000/`
           `https://frmi-marvel-api.herokuapp.com/characters?name=${search}&skip=${skip}`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data.results);
         setCount(response.data.count);
         setIsLoading(false);
@@ -51,7 +50,7 @@ const Characters = (props) => {
         setSkip={setSkip}
         count={count}
         page={page}
-        setPage={setPage}
+        search={search}
         setSearch={setSearch}
       />
       {/* Afficher les données reçu (JSON) */}

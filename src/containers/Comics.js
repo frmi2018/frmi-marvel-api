@@ -7,7 +7,7 @@ import LineTop from "../components/LineTop";
 import Loader from "react-loader-spinner";
 
 const Comics = (props) => {
-  const { skip, setSkip, count, setCount, page } = props;
+  const { skip, setSkip, count, setCount, page, search, setSearch } = props;
 
   // state pour stocker les données reçu
   const [data, setData] = useState();
@@ -34,9 +34,10 @@ const Comics = (props) => {
         } else {
           // route pour tous les comics
           const response = await axios.get(
-            // `http://localhost:4000/comics?skip=${skip}`
-            `https://frmi-marvel-api.herokuapp.com/comics?skip=${skip}`
+            // `http://localhost:4000/`
+            `https://frmi-marvel-api.herokuapp.com/comics?title=${search}&skip=${skip}`
           );
+          console.log(response.data);
           setData(response.data.results);
           setCount(response.data.count);
           setIsLoading(false);
@@ -46,7 +47,7 @@ const Comics = (props) => {
       }
     };
     fetchData();
-  }, [characterId, skip, setCount]);
+  }, [characterId, skip, setCount, search]);
 
   // JSX
   return isLoading ? (
@@ -59,7 +60,14 @@ const Comics = (props) => {
     />
   ) : (
     <div>
-      <LineTop skip={skip} setSkip={setSkip} count={count} page={page} />
+      <LineTop
+        skip={skip}
+        setSkip={setSkip}
+        count={count}
+        page={page}
+        search={search}
+        setSearch={setSearch}
+      />
       {characterId ? (
         [
           <span className="info">{character}</span>,
