@@ -37,7 +37,7 @@ const Comics = (props) => {
             // `http://localhost:4000/`
             `https://frmi-marvel-api.herokuapp.com/comics?title=${search}&skip=${skip}`
           );
-          console.log(response.data);
+          // console.log(response.data);
           setData(response.data.results);
           setCount(response.data.count);
           setIsLoading(false);

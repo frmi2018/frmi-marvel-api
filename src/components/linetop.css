@@ -70,10 +70,3 @@
   justify-content: center;
   align-items: center;
 }
-
-/* TODO ===> cacher un élément sans modifier le DOM */
-.hidden {
-  color: #dddddd;
-  background-color: #dddddd;
-  cursor: default;
-}
