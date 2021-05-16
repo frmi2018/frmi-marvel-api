@@ -8,13 +8,50 @@ import Loader from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Comics = (props) => {
-  const { skip, setSkip, count, setCount, page, search, setSearch } = props;
+  const {
+    skip,
+    setSkip,
+    count,
+    setCount,
+    page,
+    search,
+    setSearch,
+    favorites,
+    setFavorites,
+  } = props;
 
   // state pour stocker les données reçu
   const [data, setData] = useState();
   const [character, setCharacter] = useState();
   // state pour savoir si chargement terminé
   const [isLoading, setIsLoading] = useState(true);
+
+  // Pour ajouter des favoris
+  // ajouter un item
+  // {key: _id, label: (name ou titre), type: (character ou comic)}
+  const addFav = (item) => {
+    // console.log("*********");
+    // console.log("favorites avant modification : ", favorites);
+    let array = [...favorites];
+    // console.log("objet à ajouter : ", item);
+    let addArray = true;
+    array.map((value, key) => {
+      if (value.id === item.id) {
+        array.splice(key, 1);
+        setFavorites(array);
+        localStorage.removeItem(item.id);
+        // console.log(item.id,"supprimer de localstorage.");
+        addArray = false;
+      }
+    });
+    if (addArray) {
+      array.push(item);
+      setFavorites(array);
+      localStorage.setItem("favorites", [array]);
+      // console.log(item.id,"ajouter dans localstorage.");
+    }
+  };
+
   // récupération des paramètres envoyés à la fonction Comics
   const { characterId } = useParams();
 
@@ -93,13 +130,36 @@ const Comics = (props) => {
             />
             <div className="infos">
               <div className="label">
-                <div
-                  className="bg-heart"
-                  onClick={() => {
-                    console.log("favorit :", comic._id);
-                  }}
-                >
-                  <FontAwesomeIcon icon="heart" className="heart-img-icon" />
+                <div className="bg-heart">
+                  {favorites.includes(comic._id) ? (
+                    <FontAwesomeIcon
+                      icon="heart"
+                      onClick={() => {
+                        var item = {
+                          id: comic._id,
+                          name: comic.title,
+                          type: "comics",
+                        };
+                        addFav(item);
+                      }}
+                      style={{ color: "yellow" }}
+                      className="heart-img-icon"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon="heart"
+                      onClick={() => {
+                        var item = {
+                          id: comic._id,
+                          name: comic.title,
+                          type: "comics",
+                        };
+                        addFav(item);
+                      }}
+                      style={{ color: "grey" }}
+                      className="heart-img-icon"
+                    />
+                  )}
                 </div>
                 <div className="label-col2">
                   <span className="title">{comic.title}</span>

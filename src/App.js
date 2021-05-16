@@ -1,3 +1,10 @@
+// TODO
+// revoir description il y a des balises HTML
+// revoir couleur coeur favoris si actif ou pas
+// ajouter favoris comics
+// revoir css page favoris
+// revoir warning/erreur
+
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -42,6 +49,8 @@ function App() {
                 page={page}
                 search={search}
                 setSearch={setSearch}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             </Route>
             <Route path="/comics">
@@ -54,6 +63,8 @@ function App() {
                 setPage={setPage}
                 search={search}
                 setSearch={setSearch}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             </Route>
             <Route path="/favoris">
