@@ -35,7 +35,8 @@ const Characters = (props) => {
     let array = [...favorites];
     // console.log("objet à ajouter : ", item);
     let addArray = true;
-    array.map((value, key) => {
+    // array.map((value, key) => {
+    array.forEach((value, key) => {
       if (value.id === item.id) {
         array.splice(key, 1);
         setFavorites(array);

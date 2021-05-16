@@ -41,6 +41,8 @@ const LineTop = ({ skip, setSkip, count, page, setSearch, search }) => {
           )}
         </div>
 
+        {/* INFOS */}
+
         <LineTopInfos skip={skip} count={count} />
 
         {/* NEXT PAGE */}
