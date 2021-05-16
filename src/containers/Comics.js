@@ -1,10 +1,11 @@
 // page web comics
-import "./comics.css";
+import "./card.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LineTop from "../components/LineTop";
 import Loader from "react-loader-spinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Comics = (props) => {
   const { skip, setSkip, count, setCount, page, search, setSearch } = props;
@@ -80,18 +81,34 @@ const Comics = (props) => {
         <span>Comics List</span>
       )}
       {/* Faire un .map sur le tableau des comics pour les afficher */}
-      {data.map((comic) => {
+      {data.map((comic, index) => {
         return (
           // response.data._id ou comic._id
-          <div key={comic._id} className="card-comic">
+          <div key={comic._id} className="card">
             <img
+              id={index}
               // src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
               src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
               alt={comic.title}
             />
-            <div>
-              <span>{comic.title}</span>
-              <span>{comic.description}</span>
+            <div className="infos">
+              <div className="label">
+                <div
+                  className="bg-heart"
+                  onClick={() => {
+                    console.log("favorit :", comic._id);
+                  }}
+                >
+                  <FontAwesomeIcon icon="heart" className="heart-img-icon" />
+                </div>
+                <div className="label-col2">
+                  <span className="title">{comic.title}</span>
+                  <span className="index">
+                    {skip + index + 1}/{count}
+                  </span>
+                </div>
+              </div>
+              <span className="description">{comic.description}</span>
             </div>
           </div>
         );

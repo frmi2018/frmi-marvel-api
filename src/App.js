@@ -8,14 +8,19 @@ import Favoris from "./containers/Favoris";
 import Nav from "./components/Nav";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-library.add(faSearch);
+import { faSearch, faHeart } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch, faHeart);
 
 function App() {
   const [skip, setSkip] = useState(0);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState("character");
   const [search, setSearch] = useState("");
+
+  // tableau pour stocker les favoris
+  const [favorites, setFavorites] = useState(
+    localStorage.getItem("favorites") || []
+  );
 
   return (
     <Router>
@@ -39,16 +44,6 @@ function App() {
                 setSearch={setSearch}
               />
             </Route>
-            {/* <Route path="/comics/:skip">
-              <Comics
-                skip={skip}
-                setSkip={setSkip}
-                count={count}
-                setCount={setCount}
-                page={page}
-                setPage={setPage}
-              />
-            </Route> */}
             <Route path="/comics">
               <Comics
                 skip={skip}
@@ -62,9 +57,8 @@ function App() {
               />
             </Route>
             <Route path="/favoris">
-              <Favoris />
+              <Favoris favorites={favorites} />
             </Route>
-            {/* <Route path="/characters/:skip"> */}
             <Route path="/characters">
               <Characters
                 skip={skip}
@@ -75,6 +69,8 @@ function App() {
                 setPage={setPage}
                 search={search}
                 setSearch={setSearch}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             </Route>
             <Route path="/">
@@ -87,6 +83,8 @@ function App() {
                 setPage={setPage}
                 search={search}
                 setSearch={setSearch}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             </Route>
           </Switch>

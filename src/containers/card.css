@@ -1,0 +1,62 @@
+.card {
+  background-color: #ee171f;
+  display: flex;
+  height: 150px;
+  margin-top: 1vh;
+  padding: 4px;
+}
+
+.card img {
+  height: 150px;
+  width: 150px;
+}
+
+.card .infos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5vw;
+}
+
+.card .infos .label {
+  background-color: white;
+  color: #ee171f;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+
+/* Heart icon */
+
+.card .infos .label .bg-heart {
+  width: 24px;
+  text-align: center;
+  margin: 0 4px;
+}
+
+.card .infos .label-col2 {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .infos .label-col2 .index {
+  font-size: 0.4em;
+  padding: 2px;
+}
+
+.card .infos .description {
+  color: white;
+  height: 100%;
+  font-size: 0.6em;
+  overflow-y: hidden;
+  overflow: auto;
+}
+
+.card .infos .label .bg-heart .yellow {
+  color: yellow;
+}
+
+.card .infos .label .bg-heart .grey {
+  color: grey;
+}
