@@ -13,7 +13,7 @@ A project FullStack with Express/Axios to learn React started during my training
 ## Get the Code
 
 ```
-$ git clone https://github.com/frmi2018/gamepad.git
+$ git clone https://github.com/frmi2018/frmi-marvel-api.git
 ```
 
 ## Website
