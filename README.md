@@ -1,4 +1,4 @@
-# GamePad
+# API Marvel
 
 📅 started april 2021  
 Developed with Visual Studio Code on Windows 10  
