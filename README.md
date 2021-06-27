@@ -1,7 +1,21 @@
-# FRMI MARVEL
-Projet réalisé lors de ma formation au Reacteur début 2021.
+# GamePad
 
-## Status
-en cours de réalisation.
+📅 started april 2021  
+Developed with Visual Studio Code on Windows 10  
+in progress...
 
-![alt text](https://github.com/frmi2018/frmi-marvel-api/blob/main/src/assets/images/marvel.png?raw=true)
+## To do that ?
+
+A project FullStack with Express/Axios to learn React started during my training at https://www.lereacteur.io/
+
+![alt text](https://github.com/frmi2018/frmi-marvel-api/blob/main/src/assets/images/marvel.png?raw=true) 
+
+## Get the Code
+
+```
+$ git clone https://github.com/frmi2018/gamepad.git
+```
+
+## Website
+
+https://frmi-marvel-api.netlify.app/
