@@ -1,4 +1,4 @@
-# API Marvel
+# Marvel
 
 📅 started april 2021  
 Developed with Visual Studio Code on Windows 10  
@@ -6,7 +6,8 @@ in progress...
 
 ## To do that ?
 
-A project FullStack with Express/Axios to learn React started during my training at https://www.lereacteur.io/
+To learn to devevelop a full-stack React project.  
+Started during my training at https://www.lereacteur.io/
 
 ![alt text](https://github.com/frmi2018/frmi-marvel-api/blob/main/src/assets/images/marvel.png?raw=true) 
 
@@ -15,7 +16,3 @@ A project FullStack with Express/Axios to learn React started during my training
 ```
 $ git clone https://github.com/frmi2018/frmi-marvel-api.git
 ```
-
-## Website
-
-https://frmi-marvel-api.netlify.app/
