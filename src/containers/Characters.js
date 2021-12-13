@@ -60,7 +60,7 @@ const Characters = (props) => {
         const response = await axios.get(
           // `http://localhost:4000/`
           // `https://frmi-marvel-api.herokuapp.com/characters?name=${search}&skip=${skip}`
-          `https://serveur-frmi.herokuapp.com/characters?name=${search}&skip=${skip}`
+          `https://serveur-frmi.herokuapp.com/api/characters?name=${search}&skip=${skip}`
         );
         // console.log(response.data);
         setData(response.data.results);
