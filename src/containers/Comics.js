@@ -64,7 +64,7 @@ const Comics = (props) => {
           // route pour les comics d'un character
           const response = await axios.get(
             // `http://localhost:4000/comics?characterId=${characterId}`
-            `https://frmi-marvel-api.herokuapp.com/comics?characterId=${characterId}`
+            `https://serveur-frmi.herokuapp.com/comics?characterId=${characterId}`
           );
           setCharacter(response.data.name);
           setData(response.data.comics);
@@ -74,7 +74,7 @@ const Comics = (props) => {
           // route pour tous les comics
           const response = await axios.get(
             // `http://localhost:4000/`
-            `https://frmi-marvel-api.herokuapp.com/comics?title=${search}&skip=${skip}`
+            `https://serveur-frmi.herokuapp.com/comics?title=${search}&skip=${skip}`
           );
           // console.log(response.data);
           setData(response.data.results);

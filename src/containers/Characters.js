@@ -59,7 +59,8 @@ const Characters = (props) => {
       try {
         const response = await axios.get(
           // `http://localhost:4000/`
-          `https://frmi-marvel-api.herokuapp.com/characters?name=${search}&skip=${skip}`
+          // `https://frmi-marvel-api.herokuapp.com/characters?name=${search}&skip=${skip}`
+          `https://serveur-frmi.herokuapp.com/characters?name=${search}&skip=${skip}`
         );
         // console.log(response.data);
         setData(response.data.results);
@@ -101,16 +102,14 @@ const Characters = (props) => {
             setSkip={setSkip}
             setCount={setCount}
             page={page}
-            id={index}
-          >
+            id={index}>
             <div
               className="card"
               onClick={() => {
                 setSkip(0);
                 setCount(0);
                 setPage("comics");
-              }}
-            >
+              }}>
               <img
                 id={index}
                 // src={[char.thumbnail.path] + "." + [char.thumbnail.extension]}
